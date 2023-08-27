@@ -1,0 +1,68 @@
+:host {
+  width: 100%;
+}
+
+.ACARS {
+  color: #c000d1;
+  font-weight: bold;
+}
+
+.VDL2 {
+  color: #00FF00;
+  font-weight: bold;
+}
+
+.HFDL {
+  font-weight: bold;
+  color: #FFA500;
+}
+
+.SATCOM {
+  font-weight: bold;
+  color: #0080FF;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  gap: 0.25em;
+}
+
+.top>* {
+  width: fit-content;
+}
+
+.top>*,
+.bottom {
+  padding: 0.5em;
+}
+
+.top>* {
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+
+.bottom {
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+
+.bottom,
+.top>* {
+  background-color: #505050;
+}
+
+.text {
+  font-size: 0.9em;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-all;
+  padding: 0.25em;
+  background-color: black;
+}
+
+@media screen and (max-width: 500px) {
+  .text {
+    font-size: 0.8em;
+  }
+}

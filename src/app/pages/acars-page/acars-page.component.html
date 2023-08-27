@@ -1,0 +1,21 @@
+<div class="toolbar">
+  <div *ngIf="_wsConnection; else wsDisconnected">
+    <div class="wsConnected">Websocket connected</div>
+  </div>
+  <ng-template #wsDisconnected class="wsDisconnected">
+    <div class="wsDisconnected">Websocket disconnected</div>
+  </ng-template>
+
+  <div class="flex-row stats">
+    <div class="flex-row">
+      <div>ACARS: {{_stats.ACARS}}</div>
+      <div>VDL2: {{_stats.VDL2}}</div>
+      <div>HFDL: {{_stats.HFDL}}</div>
+      <div>SATCOM: {{_stats.SATCOM}}</div>
+    </div>
+  </div>
+</div>
+
+<div class="rlist">
+  <app-acars-frame *ngFor="let frame of _messages" [Frame]="frame"></app-acars-frame>
+</div>

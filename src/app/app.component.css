@@ -56,7 +56,6 @@ footer {
 }
 
 .dd:hover .ddc, .dd:active .ddc {
-  position: absolute;
   background-color: #242424;
   padding: 0.5em;
   width: max-content;

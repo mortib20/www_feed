@@ -1,14 +1,11 @@
 export interface Frame {
-  type: 'ACARS' | 'VDL2' | 'HFDL' | 'SATCOM';
-  src: { addr: string; type: string; };
-  dst: { addr: string; type: string; };
-  t: { sec: number; usec: number; };
-  acars: {
-    reg: string;
-    flight: string;
-    mode: string;
-    msg_num: string;
-    msg_num_seq: string;
-    msg_text: string;
-  };
+  type: 'jaero' | 'dumphfdl' | 'dumpvdl2' | 'acarsdec'
+  channel: string
+  receiver: string
+  timestamp: number
+  label: string
+  text: string
+  reg: string
+  flight: string
+  addr: string
 }

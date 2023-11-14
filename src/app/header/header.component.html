@@ -1,0 +1,21 @@
+<h1>{{settings.title}}</h1>
+<div class="links">
+  <a href="acars">📰acars</a>
+  <a href="https://dyn2.martpaul.de/tar1090/">🗺️map</a>
+  <a href="webcam">📷webcam</a>
+
+  <a class="linksOpen" *ngIf="linksOpen; else upArrow" #downArrow (click)="changeLinksOpen()">⬇️links</a>
+  <ng-template #upArrow>
+    <a class="linksOpen" (click)="changeLinksOpen()">⬆️links</a>
+  </ng-template>
+</div>
+
+<div class="sidescroll" *ngIf="linksOpen">
+  <a href="https://app.airframes.io/">📦airframes</a>
+  <a href="https://adsb.lol/">😂adsb.lol</a>
+  <a href="https://globe.adsb.fi/">🦟adsb.fi</a>
+  <a href="https://globe.adsb.one/">🕐adsb.one</a>
+  <a href="https://radar.planespotters.net/">🔎planespotters</a>
+  <a href="https://www.flightradar24.com/">🎡flightradar24</a>
+  <a href="https://globe.adsbexchange.com/">💰ads-b exchange</a>
+</div>

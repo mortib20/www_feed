@@ -7,5 +7,5 @@ export interface Frame {
   text: string
   reg: string
   flight: string
-  addr: string
+  icao: string
 }

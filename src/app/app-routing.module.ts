@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AcarsPageComponent } from './pages/acars-page/acars-page.component';
-import { AppModule } from './app.module';
 import { IndexPageComponent } from './pages/index-page/index-page.component';
 
 const routes: Routes = [

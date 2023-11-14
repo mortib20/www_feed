@@ -52,7 +52,7 @@ export class AcarsFrameComponent {
     this._reg = frame.reg;
     this._flight = frame.flight;
     this._channel = frame.type === 'jaero' ? frame.channel : (Number(frame.channel) / 1000).toLocaleString('de') + ' MHz';
-    this._hex = frame.addr;
+    this._hex = frame.icao;
     this._openLink = 'https://globe.adsbexchange.com?icao='+this._hex;
     this.GetPlaneSpottersPhoto();
   }

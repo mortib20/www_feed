@@ -30,13 +30,13 @@
 <div class="bottom">
   <!-- If Image -->
   <div class="imgcontainer" *ngIf="(_plSpotImg && _plSpotPhGrap && _plSpotLink); else noImage">
-    <a [href]="_plSpotLink">
-      <img [src]="_plSpotImg.src" [width]="_plSpotImg.size.width" [height]="_plSpotImg.size.height">
+    <a [href]="_plSpotLink" >
+      <img [src]="_plSpotImg.src" [width]="200" [height]="133">
       <p>{{ _plSpotPhGrap }}</p>
     </a>
   </div>
   <!-- Else Image -->
-  <ng-template #noImage>
+  <ng-template class="imgcontainer" #noImage>
     <p>No image</p>
   </ng-template>
   <!-- END Image -->

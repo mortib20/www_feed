@@ -6,11 +6,11 @@
 
   <a class="linksOpen" *ngIf="linksOpen; else upArrow" #downArrow (click)="changeLinksOpen()">⬇️links</a>
   <ng-template #upArrow>
-    <a class="linksOpen" (mouseover)="linksOpen = true" (mouseleave)="linksOpen = false" (click)="changeLinksOpen()">⬆️links</a>
+    <a class="linksOpen" (mouseover)="enableLinksOpen()" (mouseleave)="disableLinksOpen()" (click)="changeLinksOpen()">⬆️links</a>
   </ng-template>
 </div>
 
-<div class="sidescroll" (mouseover)="linksOpen = true" (mouseleave)="linksOpen = false" *ngIf="linksOpen">
+<div class="sidescroll" (mouseover)="enableLinksOpen()" (mouseleave)="disableLinksOpen()" *ngIf="linksOpen">
   <a href="https://app.airframes.io/">📦airframes</a>
   <a href="https://adsb.lol/">😂adsb.lol</a>
   <a href="https://globe.adsb.fi/">🦟adsb.fi</a>

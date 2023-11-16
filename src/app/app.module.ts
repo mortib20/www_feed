@@ -6,12 +6,18 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { Settings } from './settings';
 import { IndexComponent } from './pages/index/index.component';
+import { AcarsComponent } from './pages/acars/acars.component';
+import { WebcamComponent } from './pages/webcam/webcam.component';
+import { AcarsStatusComponent } from './pages/acars/components/acars-status/acars-status.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    IndexComponent
+    IndexComponent,
+    AcarsComponent,
+    WebcamComponent,
+    AcarsStatusComponent
   ],
   imports: [
     BrowserModule,

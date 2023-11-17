@@ -1,0 +1,40 @@
+:host {
+  background: var(--tertiary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: max-content;
+  padding: 0.5em;
+  user-select: none;
+}
+
+.counts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  gap: 1em;
+}
+
+.counts > span {
+  display: flex;
+  flex-direction: column;
+  column-gap: 0.5em;
+}
+
+
+@media only screen and (min-width: 600px) {
+  :host {
+    flex-direction: row;
+    gap: 1em;
+  }
+
+  .counts {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .counts > span {
+    flex-direction: row;
+  }
+}

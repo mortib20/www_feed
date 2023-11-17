@@ -1,0 +1,6 @@
+.frames {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 1em;
+  padding: 1em;
+}

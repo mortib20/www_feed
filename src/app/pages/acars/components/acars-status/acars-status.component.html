@@ -8,5 +8,8 @@
 </ng-template>
 
 <div class="counts">
-  <span *ngFor="let outputName of outputNames">{{outputName}}: {{CountFor(outputName)}}</span>
+  <span *ngFor="let outputName of outputNames">
+    <span>{{outputName}}:</span>
+    <span>{{CountFor(outputName)}}</span>
+  </span>
 </div>

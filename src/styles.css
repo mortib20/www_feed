@@ -2,8 +2,10 @@
   --fontSize: 20px;
   --text: #f0f0f0;
   --text2: #aaaaaa;
-  --background: #303030;
-  --primary: #404040;
+  --background: #202020;
+  --primary: #454545;
+  --secondary: #404040;
+  --tertiary: #303030;
 }
 
 * {
@@ -19,7 +21,7 @@ html {
 body {
   color: var(--text);
   font-family: Arial, Helvetica, sans-serif;
-  background-color: var(--background);
+  background: var(--background);
 }
 
 a {

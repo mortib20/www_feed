@@ -9,6 +9,8 @@ import { IndexComponent } from './pages/index/index.component';
 import { AcarsComponent } from './pages/acars/acars.component';
 import { WebcamComponent } from './pages/webcam/webcam.component';
 import { AcarsStatusComponent } from './pages/acars/components/acars-status/acars-status.component';
+import { AcarsFrameComponent } from './pages/acars/components/acars-frame/acars-frame.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,11 +19,13 @@ import { AcarsStatusComponent } from './pages/acars/components/acars-status/acar
     IndexComponent,
     AcarsComponent,
     WebcamComponent,
-    AcarsStatusComponent
+    AcarsStatusComponent,
+    AcarsFrameComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     Settings

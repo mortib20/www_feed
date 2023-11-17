@@ -1,19 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { AcarflowService } from './services/acarflow.service';
 import { Frame } from './interfaces/Frame';
+import { BehaviorSubject, Subscription } from 'rxjs';
+import { Settings } from 'src/app/settings';
 
 @Component({
   selector: 'app-acars',
   templateUrl: './acars.component.html',
   styleUrls: ['./acars.component.css']
 })
-export class AcarsComponent {
-  public frames: Frame[] = [];
+export class AcarsComponent implements OnDestroy {
+  private outputSubscriptions: Subscription[] = [];
+  public messages: Frame[] = [];
 
-  constructor(private acarflowService: AcarflowService) {
-    acarflowService.acarsdec.asObservable().subscribe(s => console.log(s));
-    acarflowService.dumpvdl2.asObservable().subscribe(s => console.log(s));
-    acarflowService.dumphfdl.asObservable().subscribe(s => console.log(s));
-    acarflowService.jaero.asObservable().subscribe(s => console.log(s));
+  constructor(public acarflowService: AcarflowService, public settings: Settings) {
+    // Subscribe to ACARFLOW Outputs
+      settings
+      .acarflowOutputs
+      .forEach(output =>
+        this.outputSubscriptions.push(
+          acarflowService.on(output)
+            .subscribe(s => this.SubscribeToAcarflowOutput(s))
+        )
+      );
+  }
+
+  private SubscribeToAcarflowOutput(frame: Frame) {
+    this.messages.push(frame);
+    this.LogMessage(frame);
+  }
+
+  private LogMessage(frame: Frame) {
+    console.groupCollapsed(frame.reg);
+    console.log(frame);
+    console.groupEnd();
+  }
+
+  ngOnDestroy(): void {
+    this.outputSubscriptions.forEach(s => s.unsubscribe());
   }
 }

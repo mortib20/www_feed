@@ -1,5 +1,5 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import * as socketio from 'socket.io-client';
 import { Settings } from 'src/app/settings';
 import { Frame } from '../interfaces/Frame';
@@ -10,33 +10,34 @@ import { Frame } from '../interfaces/Frame';
 })
 export class AcarflowService implements OnDestroy {
   private websocket: socketio.Socket;
-  private outputSubscriptions: Subscription[] = [];
 
-  public acarsdec: BehaviorSubject<Frame | undefined> = new BehaviorSubject<Frame | undefined>(undefined);
-  public dumphfdl: BehaviorSubject<Frame | undefined> = new BehaviorSubject<Frame | undefined>(undefined);
-  public dumpvdl2: BehaviorSubject<Frame | undefined> = new BehaviorSubject<Frame | undefined>(undefined);
-  public jaero: BehaviorSubject<Frame | undefined> = new BehaviorSubject<Frame | undefined>(undefined);
+  private _connected: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public connected$ = this._connected.asObservable();
 
   constructor(settings: Settings) {
     this.websocket = socketio.io(settings.acarflow);
-    this.websocket.on('connect', () => console.log("Websocket connected"));
-    this.websocket.on('disconnected', () => console.log("Websocket disconnected"));
-    this.websocket.on('error', (err) => console.log(err));
-    this.subscribeToOutputs();
+    this.websocket.io.on('open', () => this.Connect());
+    this.websocket.io.on('close', () => this.Disconnected());
   }
 
   ngOnDestroy(): void {
-    this.outputSubscriptions.forEach(sub => sub.unsubscribe());
+    this.websocket.disconnect();
   }
 
-  private subscribeToOutputs() {
-    this.outputSubscriptions.push(this.on<Frame>('acarsdec').subscribe(s => this.acarsdec.next(s)));
-    this.outputSubscriptions.push(this.on<Frame>('dumphfdl').subscribe(s => this.dumphfdl.next(s)));
-    this.outputSubscriptions.push(this.on<Frame>('dumpvdl2').subscribe(s => this.dumpvdl2.next(s)));
-    this.outputSubscriptions.push(this.on<Frame>('jaero').subscribe(s => this.jaero.next(s)));
+  private Connect() {
+    console.log("acarflow connected");
+    this._connected.next(true);
   }
 
-  on<T>(event: string): Observable<T> {
-    return new Observable<T>(s => { this.websocket.on(event, (data) => s.next(data)) });
+  private Disconnected() {
+    console.log("acarflow disconnected");
+    this._connected.next(false);
+  }
+
+  on(event: string): Observable<Frame> {
+    return new Observable<Frame>(s => {
+      this.websocket
+        .on(event, (data) => { if ((data as Frame).text != '') { s.next(data) } })
+    });
   }
 }

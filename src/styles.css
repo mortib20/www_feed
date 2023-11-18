@@ -33,6 +33,17 @@ a:hover {
   color: var(--text2)
 }
 
-a, p {
+a, p, button, input {
   font-size: 1em;
+}
+
+button, input {
+  color: var(--text);
+  border: none;
+  border-radius: 0;
+  background: var(--primary);
+}
+
+button:hover, input:hover {
+  cursor: pointer;
 }

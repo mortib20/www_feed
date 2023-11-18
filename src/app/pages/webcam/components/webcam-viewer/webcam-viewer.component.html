@@ -1,0 +1,40 @@
+<div class="viewer" *ngIf="_currentImages && _currentImages.length > 0; else noImage">
+  <!-- Name -->
+  <blockquote>{{_currentImages[currentIndex].name}}</blockquote>
+  <!-- Image -->
+  <img
+    [ngStyle]="{ 'filter': 'brightness('+currentBrightness+') contrast('+currentContrast+') hue-rotate('+currentHueDeg+')' }"
+    [src]="_currentImages[currentIndex].src">
+  <!-- Increment Decrement Buttons -->
+  <div class="buttons">
+    <button (click)="decrementIndex()">⬅️</button>
+    <button (click)="incrementIndex()">➡️</button>
+  </div>
+  <div class="inputs">
+    <!-- Index -->
+    <div class="input">
+      <label>{{currentIndex}}-{{maxIndex}}</label>
+      <input type="range" min="0" [max]="maxIndex" [value]="currentIndex" (input)="handleIndexInput($event)">
+    </div>
+    <!-- Brightness -->
+    <div class="input">
+      <label>brightness {{currentBrightness / 100 | percent}}</label>
+      <input type="range" step="0.1" min="0" max="100" [value]="currentBrightness"
+        (input)="handleBrightnessInput($event)">
+    </div>
+    <!-- Contrast -->
+    <div class="input">
+      <label>contrast {{currentContrast / 100 | percent}}</label>
+      <input type="range" step="0.1" min="0" max="500" [value]="currentContrast" (input)="handleContrastInput($event)">
+    </div>
+    <!-- HUE -->
+    <div class="input">
+      <label>hue {{currentHue}}°</label>
+      <input type="range" step="1" min="0" max="360" [value]="currentHue" (input)="handleHueInput($event)">
+    </div>
+  </div>
+</div>
+<!-- If no image -->
+<ng-template #noImage>
+  <p>no images found for this day</p>
+</ng-template>

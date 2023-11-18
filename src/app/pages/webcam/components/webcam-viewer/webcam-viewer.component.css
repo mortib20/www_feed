@@ -1,0 +1,54 @@
+:host, .viewer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.viewer .buttons {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5em;
+}
+
+.viewer .inputs .input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+}
+
+.viewer .inputs .input > * {
+  width: 100%;
+}
+
+.viewer img {
+  width: 100%;
+}
+
+.viewer .inputs {
+  width: 100%;
+}
+
+.viewer .inputs input[type='range'] {
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  .viewer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .viewer .buttons {
+    grid-row: 3;
+    grid-column: 1 / span 2;
+  }
+
+  .viewer blockquote {
+    grid-column: 1 / span 2;
+    text-align: center;
+  }
+}

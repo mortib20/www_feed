@@ -1,6 +1,5 @@
-<div class="image" *ngFor="let link of (currentImages$ | async)">
-  <a [href]="appendWebcamLink(link)" target="_blank">
-    <img [src]="appendWebcamLink(link)">
-    <blockquote class="name" >{{link}}</blockquote>
-  </a>
+<div class="input">
+  <input type="date" (change)="handleDateChange($event)" [value]="date">
+  <button (click)="refresh()">↻</button>
 </div>
+<app-webcam-viewer [currentImages]="currentImages$ | async"></app-webcam-viewer>

@@ -1,21 +1,13 @@
 :host {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
   width: 100%;
-}
-
-.image {
   display: flex;
   flex-direction: column;
-  padding: 1em;
+  padding: 0.5em;
+  gap: 0.5em;
 }
 
-.image .name {
-  width: 100%;
-  font-size: 100%;
-}
-
-.image img {
-  width: 100%;
-  height: auto;
+.input {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  gap: 0.25em;
 }

@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { AcarflowService } from './services/acarflow.service';
 import { Frame } from './interfaces/Frame';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Settings } from 'src/app/settings';
 
 @Component({

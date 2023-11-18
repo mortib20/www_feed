@@ -6,26 +6,23 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { Settings } from './settings';
 import { IndexComponent } from './pages/index/index.component';
-import { AcarsComponent } from './pages/acars/acars.component';
 import { WebcamComponent } from './pages/webcam/webcam.component';
-import { AcarsStatusComponent } from './pages/acars/components/acars-status/acars-status.component';
-import { AcarsFrameComponent } from './pages/acars/components/acars-frame/acars-frame.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AcarsModule } from './pages/acars/acars.module';
+import { WebcamModule } from './pages/webcam/webcam.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    IndexComponent,
-    AcarsComponent,
-    WebcamComponent,
-    AcarsStatusComponent,
-    AcarsFrameComponent
+    IndexComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AcarsModule,
+    WebcamModule
   ],
   providers: [
     Settings

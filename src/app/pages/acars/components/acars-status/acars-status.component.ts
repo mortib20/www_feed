@@ -1,6 +1,6 @@
 import { Component, Input, booleanAttribute } from '@angular/core';
 import { Frame } from '../../interfaces/Frame';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-acars-status',

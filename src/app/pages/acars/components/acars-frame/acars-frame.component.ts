@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Frame } from '../../interfaces/Frame';
-import { Photo, Planespotters, PlanespottersService, Thumbnail } from '../../services/planespotters.service';
+import { Photo, PlanespottersService } from '../../services/planespotters.service';
 
 @Component({
   selector: 'app-acars-frame',

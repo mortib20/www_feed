@@ -1,1 +1,6 @@
-<p>webcam works!</p>
+<div class="image" *ngFor="let link of (currentImages$ | async)">
+  <a [href]="appendWebcamLink(link)" target="_blank">
+    <img [src]="appendWebcamLink(link)">
+    <blockquote class="name" >{{link}}</blockquote>
+  </a>
+</div>

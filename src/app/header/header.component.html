@@ -1,8 +1,8 @@
-<h1><a href="">{{settings.title}}</a></h1>
+<h1><a routerLink="">{{settings.title}}</a></h1>
 <div class="links">
   <a [href]="settings.tar1090">🗺️map</a>
-  <a href="acars">📰acars</a>
-  <a href="webcam">📷webcam</a>
+  <a routerLink="acars">📰acars</a>
+  <a routerLink="webcam">📷webcam</a>
 
   <a class="linksOpen" *ngIf="linksOpen; else upArrow" #downArrow (click)="changeLinksOpen()">⬇️links</a>
   <ng-template #upArrow>

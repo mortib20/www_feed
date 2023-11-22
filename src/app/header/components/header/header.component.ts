@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { Settings } from '../settings';
+import { Settings } from '../../../settings';
 
 @Component({
   selector: 'app-header',

@@ -15,7 +15,7 @@ export class AcarsComponent implements OnDestroy {
 
   constructor(public acarflowService: AcarflowService, public settings: Settings) {
     // Subscribe to ACARFLOW Outputs
-      settings
+    settings
       .acarflowOutputs
       .forEach(output =>
         this.outputSubscriptions.push(

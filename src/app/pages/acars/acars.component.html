@@ -1,13 +1,10 @@
-<app-acars-status
-  [messages]="messages"
-  [outputNames]="settings.acarflowOutputs"
-  [status]="(acarflowService.connected$ | async)">
-</app-acars-status>
+<app-acars-status [messages]="messages" [outputNames]="settings.acarflowOutputs"
+  [status]="(acarflowService.connected$ | async)" />
 
 <div class="frames" *ngIf="messages.length != 0; else noMessages">
-  <app-acars-frame *ngFor="let frame of messages" [frame]="frame"></app-acars-frame>
+  <app-acars-frame *ngFor="let frame of messages" [frame]="frame"/>
 </div>
 
 <ng-template #noMessages>
-  <p style="width: 100%">no messages</p>
+  <p>no messages</p>
 </ng-template>

@@ -37,7 +37,11 @@ export class AcarflowService implements OnDestroy {
   on(event: string): Observable<Frame> {
     return new Observable<Frame>(s => {
       this.websocket
-        .on(event, (data) => { if ((data as Frame).text != '') { s.next(data) } })
+        .on(event, (data) => { if (this.isNotEmptyFrame(data)) { s.next(data) } })
     });
+  }
+
+  private isNotEmptyFrame(frame: Frame) {
+    return frame.text != '';
   }
 }

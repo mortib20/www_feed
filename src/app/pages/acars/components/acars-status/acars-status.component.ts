@@ -8,20 +8,15 @@ import { Observable } from 'rxjs';
   styleUrls: ['./acars-status.component.css']
 })
 export class AcarsStatusComponent {
+  @Input({ transform: booleanAttribute }) status: boolean = false;
   @Input() outputNames: string[] = [];
-  @Input({transform: booleanAttribute}) status: boolean = false;
+  @Input() messages: Frame[] = [];
 
-  private _messages: Frame[] = [];
-  @Input() set messages(messages: Frame[]) {
-    this._messages = messages;
-  }
-  public messages$ = new Observable<Frame[]>(s => s.next(this._messages));
+  public messages$ = new Observable<Frame[]>(s => s.next(this.messages));
 
   public CountFor(name: string) {
-    if(!this._messages) {
-      return;
-    }
-
-    return this._messages.filter(m => m.type == name).length;
+    return !this.messages ?
+      undefined :
+      this.messages.filter(m => m.type == name).length;
   }
 }

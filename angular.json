@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "MP-EDQM01:build:production"
+              "buildTarget": "MP-EDQM01:build:production"
             },
             "development": {
-              "browserTarget": "MP-EDQM01:build:development"
+              "buildTarget": "MP-EDQM01:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "MP-EDQM01:build"
+            "buildTarget": "MP-EDQM01:build"
           }
         },
         "test": {

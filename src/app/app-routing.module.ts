@@ -8,7 +8,6 @@ const routes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'acars', component: AcarsComponent },
   { path: 'webcam', component: WebcamComponent },
-
 ];
 
 @NgModule({

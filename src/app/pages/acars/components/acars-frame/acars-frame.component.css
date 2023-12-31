@@ -1,7 +1,7 @@
 :host {
   display: grid;
   gap: 0.5em;
-  background: var(--secondary);
+  background: #3a5383;
   padding: 0.5em;
 }
 

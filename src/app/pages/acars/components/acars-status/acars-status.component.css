@@ -1,11 +1,14 @@
 :host {
-  background: var(--tertiary);
+  position: sticky;
+  top: 0;
+  background: #283167;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   height: max-content;
-  padding: 0.5em;
+  padding-inline: 1em;
+  padding-block: 0.5em;
   user-select: none;
 }
 
@@ -22,6 +25,10 @@
   column-gap: 0.5em;
 }
 
+.top:hover {
+  cursor: pointer;
+  justify-self: flex-end;
+}
 
 @media only screen and (min-width: 700px) {
   :host {

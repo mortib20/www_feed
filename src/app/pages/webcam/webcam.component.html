@@ -1,7 +1,7 @@
 <div class="input">
   <input type="date" (change)="handleDateChange($event)" [value]="getDateTime()">
-  <button (click)="lastDay()">⬅️</button>
-  <button (click)="nextDay()">➡️</button>
-  <button (click)="refresh()">↻</button>
+  <div class="pointi" (click)="lastDay()">⬅️</div>
+  <div class="pointi" (click)="nextDay()">➡️</div>
+  <div class="pointi" (click)="refresh()">↻</div>
 </div>
 <app-webcam-viewer [currentImages]="currentImages$ | async"></app-webcam-viewer>

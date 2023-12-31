@@ -1,56 +1,44 @@
 :root {
-  --fontSize: 20px;
-  --text: #f8f8f8; /* Off-white text for better contrast */
-  --text2: #cccccc; /* Light gray text color */
-  --background: #1c1c1c; /* Slightly darker background color */
-  --primary: #555555; /* Dark gray for primary elements */
-  --secondary: #494949; /* Slightly darker secondary color */
-  --tertiary: #333333; /* Darkest tertiary color */
+  --background: #293760;
+  --header: #454545;
+  --primary-text: #FAF0E6;
+  --secondary-text: #e0d0bd;
+  --primary-selected: #988e8c;
+  --button-color: #646fb2;
 }
 
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
+  color: var(--primary-text);
   box-sizing: border-box;
 }
 
 html {
-  font-size: var(--fontSize);
+  font-size: 18px;
 }
 
 body {
-  color: var(--text);
-  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  font-family: Calibri, "Roboto Thin", sans-serif;
+  font-weight: bolder;
   background: var(--background);
 }
 
 a {
-  color: var(--text);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--text2)
+  color: var(--primary-selected);
 }
 
-a, p, button, input {
-  font-size: 1em;
-  padding: 0.2em;
-}
-
-button, input {
-  color: var(--text);
+button, input[type="date"] {
+  background-color: var(--button-color);
   border: none;
-  border-radius: 0;
-  background: var(--primary);
 }
 
-button:hover, input:hover {
+button:hover {
+  background-color: var(--primary-selected);
   cursor: pointer;
-}
-
-@media screen and (max-width: 600px) {
-  body {
-    font-size: 18px;
-  }
 }

@@ -19,4 +19,10 @@ export class AcarsStatusComponent {
       undefined :
       this.messages.filter(m => m.type == name).length;
   }
+
+  protected readonly window = window
+
+  scrollTop() {
+    window.scroll(0, 0);
+  }
 }

@@ -1,15 +1,17 @@
 <div *ngIf="status; else disconnected" style="color: #00ff00;">
-  AcarFlow connected
+  Acarflow connected
 </div>
 <ng-template #disconnected>
   <div style="color: #ff0000">
-    AcarFlow disconnected
+    Acarflow disconnected
   </div>
 </ng-template>
 
 <div class="counts">
   <span *ngFor="let outputName of outputNames">
-    <span>{{outputName}}:</span>
-    <span>{{CountFor(outputName)}}</span>
+    <span>{{ outputName }}:</span>
+    <span>{{ CountFor(outputName) }}</span>
   </span>
 </div>
+
+<div class="top" (click)="scrollTop()">⬆️</div>

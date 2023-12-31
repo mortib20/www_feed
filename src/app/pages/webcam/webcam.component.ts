@@ -12,7 +12,7 @@ export class WebcamComponent {
   private _currentImages: BehaviorSubject<Photo[]> = new BehaviorSubject<Photo[]>([]);
   public currentImages$ = this._currentImages.asObservable();
 
-  public date: string = new Date(Date.now()).toISOString().slice(0, 10);
+  public date: Date = new Date();
 
   constructor(private api: WebcamAPIService) {
     this.refresh();
@@ -20,7 +20,7 @@ export class WebcamComponent {
 
   public refresh() {
     this.api
-      .getImagesByDate(new Date(this.date))
+      .getImagesByDate(this.date)
       .subscribe(s => {
         this._currentImages.next(s);
         console.log(s);
@@ -28,6 +28,18 @@ export class WebcamComponent {
   }
 
   handleDateChange(event: Event) {
-    this.date = (event.target as HTMLInputElement).value;
+    this.date = new Date((event.target as HTMLInputElement).value);
+  }
+
+  nextDay() {
+    this.date.setDate(this.date.getDate() + 1);
+  }
+
+  lastDay() {
+    this.date.setDate(this.date.getDate() - 1);
+  }
+
+  getDateTime() {
+    return this.date.toISOString().slice(0,10);
   }
 }

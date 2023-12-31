@@ -1,11 +1,11 @@
 :root {
   --fontSize: 20px;
-  --text: #f0f0f0;
-  --text2: #aaaaaa;
-  --background: #202020;
-  --primary: #454545;
-  --secondary: #404040;
-  --tertiary: #303030;
+  --text: #f8f8f8; /* Off-white text for better contrast */
+  --text2: #cccccc; /* Light gray text color */
+  --background: #1c1c1c; /* Slightly darker background color */
+  --primary: #555555; /* Dark gray for primary elements */
+  --secondary: #494949; /* Slightly darker secondary color */
+  --tertiary: #333333; /* Darkest tertiary color */
 }
 
 * {
@@ -35,6 +35,7 @@ a:hover {
 
 a, p, button, input {
   font-size: 1em;
+  padding: 0.2em;
 }
 
 button, input {
@@ -46,4 +47,10 @@ button, input {
 
 button:hover, input:hover {
   cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 18px;
+  }
 }

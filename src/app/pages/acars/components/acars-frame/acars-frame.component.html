@@ -11,11 +11,11 @@
 <div class="meta">
   <!-- timestamp -->
   <div *ngIf="timestamp">
-    <span>timestamp:</span><span>{{timestamp}}</span>
+    <span>Timestamp:</span><span>{{timestamp}}</span>
   </div>
   <!-- type -->
   <div *ngIf="frame?.type">
-    <span>software:</span>
+    <span>Software:</span>
     <span [ngSwitch]="frame?.type">
       <span *ngSwitchCase="'acarsdec'">🛬</span>
       <span *ngSwitchCase="'dumpvdl2'">✈️</span>
@@ -26,28 +26,28 @@
   </div>
   <!-- channel -->
   <div *ngIf="channel">
-    <span>channel:</span><span>{{channel}}</span>
+    <span>Channel:</span><span>{{channel}}</span>
   </div>
   <!-- flight -->
   <div *ngIf="frame?.flight">
-    <span>flight:</span><span>{{frame?.flight}}</span>
+    <span>Flight:</span><span>{{frame?.flight}}</span>
   </div>
   <!-- icao -->
   <div *ngIf="frame?.icao">
-    <span>icao:</span><span>{{frame?.icao}}</span>
+    <span>ICAO:</span><span>{{frame?.icao}}</span>
   </div>
   <!-- label -->
   <div *ngIf="frame?.label">
-    <span>label:</span><span>{{frame?.label}}</span>
+    <span>Label:</span><span>{{frame?.label}}</span>
   </div>
   <!-- receiver -->
   <div *ngIf="frame?.receiver">
-    <span>receiver:</span><span>{{frame?.receiver}}</span>
+    <span>Receiver:</span><span>{{frame?.receiver}}</span>
   </div>
 </div>
 
 <span *ngIf="frame?.icao" class="links">
-  <a [href]="('https://globe.adsbexchange.com?icao=')+frame?.icao">💰exchange</a>
+  <a [href]="('https://globe.adsbexchange.com?icao=')+frame?.icao">💰Exchange</a>
   <a [href]="('https://globe.adsb.one/?icao=')+frame?.icao">1️⃣adsb.one</a>
   <a [href]="('https://globe.adsb.fi/?icao=')+frame?.icao">🇫🇮adsb.fi</a>
 </span>

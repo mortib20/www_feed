@@ -8,6 +8,13 @@
 
 .input {
   display: grid;
-  grid-template-columns: minmax(max-content, 0.5fr) 1fr;
+  grid-template-columns: max-content 0.5fr 0.5fr 1fr;
   gap: 0.25em;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  padding: 0.1em;
+  font-size: 1em;
 }
